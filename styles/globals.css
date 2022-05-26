@@ -1,9 +1,14 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  padding: 0;
+  padding: 0% 10%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: #111;
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -13,4 +18,48 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.devep{
+    height: 100px;
+    list-style : none;
+    overflow: hidden;
+}
+
+.devep > li{
+    position: relative;
+    height: 100px;
+    animation: to-top 12s steps(2) infinite;
+}
+
+.devep > li > span{
+  font-color : linear-gradient(to left, #12c2e9, #c471ed, #f64f59);
+}
+
+.devep > li::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-left: 4px solid white;
+
+    animation: to-right 3s steps(19) infinite;
+}
+
+@keyframes to-right{
+    40%, 60%{
+        left: calc(100% + 50px);
+    }
+    95%{
+        left: 0;
+    }
+}
+
+@keyframes to-top {
+    100%{
+        transform: translateY(-400% );
+        /* OR */
+        /* transform: translateY(calc(-100px * 4)); */ 
+  }
 }
